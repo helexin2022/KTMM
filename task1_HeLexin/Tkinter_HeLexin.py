@@ -2,51 +2,25 @@ import tkinter as tk
 from tkinter import *
 from tkinter import ttk
 import tkinter.filedialog
+import task1_HeLexin_comm
 
 def hit_me1():
-  global on_hit1
-  if on_hit1==False:
-    on_hit=True
-    var1.set("model3.obj+Вариант 5")
-  else:
-    on_hit1=False
-    var1.set(" ")
+  var1.set("model3.obj+Вариант 5")
 
 def hit_me2():
-  global on_hit2
-  if on_hit2==False:
-    on_hit2=True
-    var2.set("coefficients.csv")
-  else:
-    on_hit2=False
-    var2.set(" ")
+   var2.set("coefficients.csv")
 
 def hit_me3():
-  global on_hit3
-  if on_hit3==False:
-    on_hit3=True
-    var3.set("Results.csv")
-  else:
-    on_hit3=False
-    var3.set(" ")
+  var3.set("Results.csv")
 
-def hit_me4():
-  global on_hit4
-  if on_hit4==False:
-    on_hit4=True
-    var4.set("34.17016314")
-  else:
-    on_hit4=False
-    var4.set(" ")
 
-def hit_me5():
-  global on_hit5
-  if on_hit5==False:
-    on_hit5=True
-    var5.set("-8.72051142")
-  else:
-    on_hit5=False
-    var5.set(" ")
+def M():
+  M = task1_HeLexin_comm.Max
+  var4.set(M)
+
+def m():
+  m = task1_HeLexin_comm.Min
+  var5.set(m)
 
 window=tk.Tk()
 window.title("Расчет и визуализация теплового режима космического аппарата")
@@ -85,12 +59,13 @@ b3=tk.Button(window,text="Результаты",width=15,height=2,command=hit_me
 b3.place(x = 100,y = 220)
 
 on_hit4=False
-b4=tk.Button(window,text="T_max",width=15,height=2,command=hit_me4)
+b4=tk.Button(window,text="T_max",width=15,height=2,command=lambda:M())
 b4.place(x = 100,y = 320)
 
 on_hit5=False
-b5=tk.Button(window,text="T_min",width=15,height=2,command=hit_me5)
+b5=tk.Button(window,text="T_min",width=15,height=2,command=lambda:m())
 b5.place(x = 100,y = 420)
 
 window.mainloop()
+
 
